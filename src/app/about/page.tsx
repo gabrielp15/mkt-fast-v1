@@ -42,7 +42,7 @@ export default function AboutPage() {
                     <div className="prose dark:prose-invert max-w-none text-center mx-auto">
                         <p>
                             O Fast MKT nasceu da necessidade de desburocratizar o acesso a serviços de marketing de alta qualidade.
-                            Sabemos que no mundo digital, o *timing* é tudo. Por isso, construímos uma plataforma que conecta sua
+                            Sabemos que no mundo digital, o timing é tudo. Por isso, construímos uma plataforma que conecta sua
                             necessidade à nossa execução em questão de minutos.
                         </p>
                         <p>

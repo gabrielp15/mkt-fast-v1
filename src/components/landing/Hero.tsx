@@ -20,7 +20,7 @@ export function Hero() {
                     </motion.div>
 
                     <motion.h1
-                        className="text-3xl font-bold tracking-tighter sm:text-5xl md:text-6xl/none bg-clip-text text-transparent bg-gradient-to-r from-primary via-purple-500 to-indigo-600 pb-2"
+                        className="text-3xl font-bold tracking-tighter sm:text-5xl md:text-6xl/none bg-clip-text text-transparent bg-gradient-to-r from-primary to-cta pb-2"
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: 0.1 }}
@@ -52,7 +52,7 @@ export function Hero() {
                             <ArrowRight className="ml-2 h-4 w-4" />
                         </Link>
                         <Link
-                            href="#services"
+                            href="/about"
                             className="inline-flex h-10 items-center justify-center rounded-md border border-input bg-background px-8 text-sm font-medium shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
                         >
                             Saiba Mais
