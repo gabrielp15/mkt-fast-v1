@@ -22,24 +22,28 @@ export default function NewRequestPage() {
     const minDate = tomorrow.toISOString().split("T")[0];
 
     // UI State
+    // Tabela de preços avulsos (conforme plano de negócios oficial)
+    const avulsoPrecos: Record<string, { price: number; label: string }> = {
+        "post-instagram":   { price: 29,   label: "Post Instagram Profissional" },
+        "kit-artes":        { price: 97,   label: "Kit 5 Artes Redes Sociais" },
+        "copy-anuncio":     { price: 59,   label: "Copy para Anúncio" },
+        "bio-instagram":    { price: 39,   label: "Bio para Instagram Otimizada" },
+        "criativo-meta":    { price: 79,   label: "Criativo para Meta Ads" },
+        "google-business":  { price: 297,  label: "Cadastro no Google Business" },
+        "criacao-bm":       { price: 297,  label: "Criação de BM na Meta" },
+        "landing-page":     { price: 297,  label: "Landing Page Simples" },
+        "site-institucional": { price: 1500, label: "Site Institucional" },
+        "ecommerce":        { price: 3000, label: "E-commerce (base)" },
+    };
+
     // Derived Pricing Logic
     const { estimatedPrice, isQuote } = useMemo(() => {
-        if (!category) {
-            return { estimatedPrice: null, isQuote: false };
-        }
-
-        switch (category) {
-            case "social":
-                return { estimatedPrice: quantity * 80, isQuote: false };
-            case "design":
-                return { estimatedPrice: quantity * 150, isQuote: false };
-            case "video":
-            case "lp":
-                return { estimatedPrice: null, isQuote: true };
-            default:
-                return { estimatedPrice: null, isQuote: true };
-        }
-    }, [category, quantity]);
+        if (!type) return { estimatedPrice: null, isQuote: false };
+        const item = avulsoPrecos[type];
+        if (!item) return { estimatedPrice: null, isQuote: true };
+        return { estimatedPrice: item.price * quantity, isQuote: false };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [type, quantity]);
 
     const handleInitialSubmit = (e: React.FormEvent) => {
         e.preventDefault();
@@ -87,28 +91,55 @@ export default function NewRequestPage() {
                             <label className="text-sm font-medium">Categoria <span className="text-red-500">*</span></label>
                             <select
                                 value={category}
-                                onChange={(e) => setCategory(e.target.value)}
+                                onChange={(e) => { setCategory(e.target.value); setType(""); }}
                                 className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
                                 required
                             >
                                 <option value="" disabled>Selecione uma categoria...</option>
-                                <option value="social">Social Media (Posts, Stories)</option>
-                                <option value="design">Design Gráfico (Identidade, Papelaria)</option>
+                                <option value="social">Social Media (Posts, Stories, Artes)</option>
+                                <option value="copy">Copywriting & Texto</option>
+                                <option value="setup">Setup Digital (BM, Google Business)</option>
+                                <option value="web">Web (Landing Page, Site, E-commerce)</option>
                                 <option value="video">Edição de Vídeo</option>
-                                <option value="lp">Landing Page / Web</option>
+                                <option value="trafego">Gestão de Tráfego</option>
                             </select>
                         </div>
 
                         <div className="space-y-2">
-                            <label className="text-sm font-medium">Tipo de Material <span className="text-red-500">*</span></label>
-                            <input
-                                type="text"
+                            <label className="text-sm font-medium">Serviço <span className="text-red-500">*</span></label>
+                            <select
                                 value={type}
                                 onChange={(e) => setType(e.target.value)}
-                                placeholder="Ex: Post para Instagram, Logo, Capa Youtube..."
-                                className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                                disabled={!category}
+                                className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
                                 required
-                            />
+                            >
+                                <option value="" disabled>{category ? "Selecione o serviço..." : "Selecione a categoria primeiro"}</option>
+                                {category === "social" && <>
+                                    <option value="post-instagram">Post Instagram Profissional — R$ 29</option>
+                                    <option value="kit-artes">Kit 5 Artes Redes Sociais — R$ 97</option>
+                                    <option value="criativo-meta">Criativo para Meta Ads — R$ 79</option>
+                                </>}
+                                {category === "copy" && <>
+                                    <option value="copy-anuncio">Copy para Anúncio — R$ 59</option>
+                                    <option value="bio-instagram">Bio para Instagram Otimizada — R$ 39</option>
+                                </>}
+                                {category === "setup" && <>
+                                    <option value="google-business">Cadastro no Google Business — R$ 297</option>
+                                    <option value="criacao-bm">Criação de BM na Meta — R$ 297</option>
+                                </>}
+                                {category === "web" && <>
+                                    <option value="landing-page">Landing Page Simples — R$ 297</option>
+                                    <option value="site-institucional">Site Institucional — R$ 1.500</option>
+                                    <option value="ecommerce">E-commerce (base) — R$ 3.000</option>
+                                </>}
+                                {(category === "video" || category === "trafego") && <>
+                                    <option value="sob-orcamento">Sob orçamento — consultar equipe</option>
+                                </>}
+                            </select>
+                            {type === "sob-orcamento" && (
+                                <p className="text-xs text-muted-foreground">Nossa equipe entrará em contato com um orçamento em até 24h.</p>
+                            )}
                         </div>
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -165,8 +196,8 @@ export default function NewRequestPage() {
 
                             <div className="space-y-2 text-sm border-b pb-4">
                                 <div className="flex justify-between">
-                                    <span className="text-muted-foreground">Categoria:</span>
-                                    <span className="font-medium capitalize">{category || "-"}</span>
+                                    <span className="text-muted-foreground">Serviço:</span>
+                                    <span className="font-medium text-right max-w-[160px] truncate">{type ? (avulsoPrecos[type]?.label ?? "Sob orçamento") : "-"}</span>
                                 </div>
                                 <div className="flex justify-between">
                                     <span className="text-muted-foreground">Qtd. Itens:</span>
@@ -241,8 +272,8 @@ export default function NewRequestPage() {
                                     <span className="font-semibold capitalize">{category}</span>
                                 </div>
                                 <div>
-                                    <span className="text-muted-foreground block text-xs uppercase tracking-wider">Tipo</span>
-                                    <span className="font-semibold">{type}</span>
+                                    <span className="text-muted-foreground block text-xs uppercase tracking-wider">Serviço</span>
+                                    <span className="font-semibold">{avulsoPrecos[type]?.label ?? type}</span>
                                 </div>
                                 <div>
                                     <span className="text-muted-foreground block text-xs uppercase tracking-wider">Quantidade</span>
