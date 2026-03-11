@@ -14,7 +14,7 @@ export default function DashboardLayout({
                 <Sidebar />
             </div>
             <div className="flex flex-col">
-                <header className="flex h-14 items-center gap-4 border-b bg-muted/40 px-6 lg:h-[60px]">
+                <header className="flex h-20 items-center gap-4 border-b bg-muted/40 px-6 lg:h-24">
                     <div className="w-full flex-1">
                         {/* Header content/Breadcrumbs could go here */}
                         <span className="font-semibold text-lg">Área do Cliente</span>

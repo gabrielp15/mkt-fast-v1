@@ -3,8 +3,9 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { LayoutDashboard, PlusCircle, CreditCard, LogOut, Rocket, Home, QrCode, CalendarDays, Sparkles, Eraser, Megaphone, FolderOpen, Wrench, ChevronDown } from "lucide-react";
+import { LayoutDashboard, PlusCircle, CreditCard, LogOut, Home, QrCode, CalendarDays, Sparkles, Eraser, Megaphone, FolderOpen, Wrench, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { Logo } from "@/components/Logo";
 
 const sidebarItems = [
     {
@@ -75,15 +76,9 @@ export function Sidebar() {
 
     return (
         <div className="flex flex-col h-full border-r bg-muted/40">
-            <div className="h-14 flex items-center border-b px-6 lg:h-[60px]">
-                <Link href="/" className="flex items-center gap-2 group">
-                    <div className="relative flex items-center justify-center p-1">
-                        <Rocket className="h-6 w-6 text-primary transition-transform group-hover:rotate-12" />
-                    </div>
-                    <div className="flex flex-col leading-none font-bold tracking-tighter">
-                        <span className="text-xl text-primary">FAST</span>
-                        <span className="text-xl text-cta -mt-1">MKT</span>
-                    </div>
+            <div className="h-20 flex items-center border-b px-6 lg:h-24">
+                <Link href="/" className="flex items-center group transition-transform hover:scale-105 active:scale-95 duration-200">
+                    <Logo className="scale-[1.5] md:scale-[1.7] origin-left" />
                 </Link>
             </div>
             <div className="flex-1 overflow-y-auto overflow-x-hidden py-4 custom-scrollbar">

@@ -33,7 +33,7 @@ export async function generateMarketingCopy(prompt: string): Promise<{ success: 
         // Garante que retorne no máximo 3 sugestões ou o que vier
         return { success: true, data: suggestions.slice(0, 3) };
 
-    } catch (error: any) {
+    } catch (error: unknown) {
         console.error("Erro na Server Action generateMarketingCopy:", error);
         return { success: false, error: "Ocorreu um erro ao comunicar com a inteligência artificial. Tente novamente mais tarde." };
     }

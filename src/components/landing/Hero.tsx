@@ -3,16 +3,26 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { Logo } from "@/components/Logo";
 
 export function Hero() {
     return (
-        <section className="relative overflow-hidden py-24 md:py-32 flex items-center justify-center bg-background">
+        <section className="relative overflow-hidden py-24 md:py-32 flex items-center justify-center bg-slate-950 bg-[radial-gradient(ellipse_at_center,rgba(255,101,30,0.15)_0%,rgba(2,6,23,1)_80%)] dark text-white min-h-[85vh]">
             <div className="container px-4 md:px-6 relative z-10">
-                <div className="flex flex-col items-center space-y-4 text-center">
+                <div className="flex flex-col items-center space-y-4 text-center mt-8">
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                        animate={{ opacity: 1, scale: 1, y: 0 }}
+                        transition={{ duration: 0.5 }}
+                        className="mb-8"
+                    >
+                        <Logo className="h-40 md:h-56 lg:h-64 drop-shadow-2xl" />
+                    </motion.div>
+
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5 }}
+                        transition={{ duration: 0.5, delay: 0.1 }}
                     >
                         <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm font-medium text-primary">
                             Fast MKT v1.0
@@ -30,7 +40,7 @@ export function Hero() {
                     </motion.h1>
 
                     <motion.p
-                        className="mx-auto max-w-[700px] text-muted-foreground md:text-xl"
+                        className="mx-auto max-w-[700px] text-slate-300 md:text-xl"
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: 0.2 }}
@@ -53,7 +63,7 @@ export function Hero() {
                         </Link>
                         <Link
                             href="/about"
-                            className="inline-flex h-10 items-center justify-center rounded-md border border-input bg-background px-8 text-sm font-medium shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
+                            className="inline-flex h-10 items-center justify-center rounded-md border border-slate-700 bg-transparent px-8 text-sm font-medium text-slate-200 shadow-sm transition-colors hover:bg-slate-800 hover:text-white focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
                         >
                             Saiba Mais
                         </Link>
@@ -61,8 +71,8 @@ export function Hero() {
                 </div>
             </div>
 
-            {/* Background decoration */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/20 blur-[100px] rounded-full -z-10 pointer-events-none" />
+            {/* Inner background glow (reduced since the radial gradient handles most of it) */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cta/10 blur-[120px] rounded-full -z-10 pointer-events-none" />
         </section>
     );
 }

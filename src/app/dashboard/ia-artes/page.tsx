@@ -25,8 +25,8 @@ export default function IaArtesPage() {
             } else {
                 setError(response.error || "Erro desconhecido ao gerar sugestões.");
             }
-        } catch (err: any) {
-            setError(err.message || "Erro de rede ao conectar com o servidor.");
+        } catch (err: unknown) {
+            setError(err instanceof Error ? err.message : "Erro de rede ao conectar com o servidor.");
         } finally {
             setIsLoading(false);
         }

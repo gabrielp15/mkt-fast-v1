@@ -5,8 +5,9 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 
-import { ArrowLeft, Loader2, Rocket, Facebook, Twitter } from "lucide-react";
+import { ArrowLeft, Loader2, Facebook, Twitter } from "lucide-react";
 import { Google } from "@/components/Icons";
+import { Logo } from "@/components/Logo";
 
 export default function RegisterPage() {
     const router = useRouter();
@@ -31,17 +32,11 @@ export default function RegisterPage() {
                 <ArrowLeft className="mr-2 h-4 w-4" />
                 Voltar
             </Link>
-            <div className="relative hidden h-full flex-col bg-muted p-10 text-white dark:border-r lg:flex">
-                <div className="absolute inset-0 bg-primary" />
+            <div className="relative hidden h-full flex-col p-10 text-white dark:border-r lg:flex overflow-hidden">
+                <div className="absolute inset-0 bg-slate-950 bg-[radial-gradient(ellipse_at_center,rgba(255,101,30,0.15)_0%,rgba(2,6,23,1)_70%)]" />
                 <div className="relative z-20 flex flex-1 items-center justify-center text-lg font-medium">
-                    <div className="flex flex-col items-center justify-center gap-6 group">
-                        <div className="relative flex items-center justify-center p-6 bg-white rounded-full w-48 h-48 shadow-2xl">
-                            <Rocket className="h-24 w-24 text-primary transition-transform group-hover:rotate-12 fill-current" />
-                        </div>
-                        <div className="flex flex-col items-center leading-none font-bold tracking-tighter text-white drop-shadow-md">
-                            <span className="text-[6rem]">FAST</span>
-                            <span className="text-[6rem] text-cta -mt-4">MKT</span>
-                        </div>
+                    <div className="flex flex-col items-center justify-center gap-6 group hover:scale-105 transition-transform duration-500">
+                        <Logo className="h-48 md:h-64 lg:h-80 w-auto drop-shadow-2xl" />
                     </div>
                 </div>
                 <div className="relative z-20 mt-auto">

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Calendar, Info, ChevronLeft, ChevronRight, Sparkles, Plus, Clock } from "lucide-react";
+import { Calendar, ChevronLeft, ChevronRight, Sparkles, Plus, Clock } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface Event {
@@ -158,7 +158,7 @@ export default function CalendarioPage() {
                     <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
                         <div className="bg-background/80 backdrop-blur border rounded-lg p-4">
                             <span className="text-xs font-bold uppercase tracking-wider text-pink-500 mb-1 block">Dia da Mulher</span>
-                            <p className="text-sm font-medium mb-2">Campanha "Força em Dobro"</p>
+                            <p className="text-sm font-medium mb-2">Campanha &quot;Força em Dobro&quot;</p>
                             <p className="text-xs text-muted-foreground">Ofereça compre 1 leve 2 em itens selecionados apenas para mulheres no dia 08.</p>
                         </div>
                         <div className="bg-background/80 backdrop-blur border rounded-lg p-4">
