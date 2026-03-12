@@ -19,11 +19,6 @@ const services = [
         title: "Edição de Vídeo",
         description: "Cortes dinâmicos, legendas e tratamento de cor profissional.",
     },
-    {
-        icon: <MonitorPlay className="h-10 w-10 text-primary" />,
-        title: "Motion Graphics",
-        description: "Animações 2D e 3D para explicar seu produto ou serviço.",
-    },
 ];
 
 const container = {
@@ -54,7 +49,7 @@ export function Services() {
                     </div>
                 </div>
                 <motion.div
-                    className="mx-auto grid max-w-5xl grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4 mt-8"
+                    className="mx-auto grid max-w-5xl grid-cols-1 gap-6 md:grid-cols-3 mt-8"
                     variants={container}
                     initial="hidden"
                     whileInView="show"

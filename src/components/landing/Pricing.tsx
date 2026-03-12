@@ -31,33 +31,50 @@ export function Pricing() {
                         </p>
                     </div>
                 </div>
-                <div className="grid grid-cols-1 gap-6 md:grid-cols-3 mt-8 max-w-5xl mx-auto">
-                    {tiers.map((tier) => (
-                        <div
-                            key={tier.name}
-                            className={`flex flex-col rounded-lg border p-6 shadow-sm ${tier.featured ? "border-primary bg-primary/5 shadow-md scale-105 z-10" : "bg-card"
-                                }`}
-                        >
-                            <div className="space-y-2">
-                                <h3 className="text-2xl font-bold">{tier.name}</h3>
-                                <div className="text-4xl font-bold">{tier.price}<span className="text-sm font-normal text-muted-foreground">/mês</span></div>
+                <div className="relative mt-8 max-w-5xl mx-auto">
+                    {/* The opaque / blocked pricing plans */}
+                    <div className="grid grid-cols-1 gap-6 md:grid-cols-3 opacity-30 blur-[2px] pointer-events-none select-none">
+                        {tiers.map((tier) => (
+                            <div
+                                key={tier.name}
+                                className={`flex flex-col rounded-lg border p-6 shadow-sm ${tier.featured ? "border-primary bg-primary/5 shadow-md scale-105 z-10" : "bg-card"
+                                    }`}
+                            >
+                                <div className="space-y-4">
+                                    <h3 className="text-2xl font-bold">{tier.name}</h3>
+                                    <div className="h-10 w-2/3 bg-slate-800/50 rounded animate-pulse"></div>
+                                </div>
+                                <ul className="my-6 space-y-2 flex-1">
+                                    {tier.features.map((feature) => (
+                                        <li key={feature} className="flex items-center">
+                                            <Check className="mr-2 h-4 w-4 text-primary" />
+                                            <span className="text-sm text-muted-foreground">{feature}</span>
+                                        </li>
+                                    ))}
+                                </ul>
+                                <button className={`mt-auto w-full rounded-md px-4 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 ${tier.featured
+                                    ? "bg-cta text-cta-foreground hover:bg-cta/90"
+                                    : "border border-input bg-background hover:bg-accent hover:text-accent-foreground"
+                                    }`}>
+                                    Assinar Agora
+                                </button>
                             </div>
-                            <ul className="my-6 space-y-2 flex-1">
-                                {tier.features.map((feature) => (
-                                    <li key={feature} className="flex items-center">
-                                        <Check className="mr-2 h-4 w-4 text-primary" />
-                                        <span className="text-sm text-muted-foreground">{feature}</span>
-                                    </li>
-                                ))}
-                            </ul>
-                            <button className={`mt-auto w-full rounded-md px-4 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 ${tier.featured
-                                ? "bg-cta text-cta-foreground hover:bg-cta/90"
-                                : "border border-input bg-background hover:bg-accent hover:text-accent-foreground"
-                                }`}>
-                                Assinar Agora
-                            </button>
+                        ))}
+                    </div>
+
+                    {/* Coming soon overlay styled as caution tape */}
+                    <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-20 overflow-hidden rounded-xl">
+                        <div 
+                        className="w-[110%] absolute flex flex-col items-center justify-center -rotate-3 shadow-2xl border-y-[12px] border-yellow-500/20 py-6"
+                        style={{ backgroundImage: "repeating-linear-gradient(45deg, #eab308, #eab308 40px, #0f172a 40px, #0f172a 80px)" }}
+                        >
+                            <div className="w-full bg-slate-950/95 backdrop-blur-md px-8 py-5 border-y-4 border-yellow-500 flex flex-col items-center justify-center">
+                                <h3 className="text-3xl md:text-5xl font-black tracking-widest text-white uppercase text-center shadow-black drop-shadow-lg">
+                                    Em Breve
+                                </h3>
+                            </div>
                         </div>
-                    ))}
+                    </div>
                 </div>
             </div>
         </section>

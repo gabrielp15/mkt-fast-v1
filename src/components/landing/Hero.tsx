@@ -3,31 +3,13 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { Logo } from "@/components/Logo";
 
 export function Hero() {
     return (
-        <section className="relative overflow-hidden py-24 md:py-32 flex items-center justify-center bg-slate-950 bg-[radial-gradient(ellipse_at_center,rgba(255,101,30,0.15)_0%,rgba(2,6,23,1)_80%)] dark text-white min-h-[85vh]">
+        <section className="relative overflow-hidden py-24 md:py-32 flex items-center justify-center bg-slate-950 bg-[radial-gradient(ellipse_at_center,rgba(255,101,30,0.15)_0%,rgba(2,6,23,1)_80%)] text-white min-h-[85vh]">
             <div className="container px-4 md:px-6 relative z-10">
                 <div className="flex flex-col items-center space-y-4 text-center mt-8">
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.9, y: 20 }}
-                        animate={{ opacity: 1, scale: 1, y: 0 }}
-                        transition={{ duration: 0.5 }}
-                        className="mb-8"
-                    >
-                        <Logo className="h-40 md:h-56 lg:h-64 drop-shadow-2xl" />
-                    </motion.div>
 
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: 0.1 }}
-                    >
-                        <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm font-medium text-primary">
-                            Fast MKT v1.0
-                        </div>
-                    </motion.div>
 
                     <motion.h1
                         className="text-3xl font-bold tracking-tighter sm:text-5xl md:text-6xl/none bg-clip-text text-transparent bg-gradient-to-r from-primary to-cta pb-2"

@@ -9,13 +9,13 @@ export default function DashboardLayout({
     children: React.ReactNode;
 }) {
     return (
-        <div className="grid min-h-screen w-full md:grid-cols-[220px_1fr] lg:grid-cols-[280px_1fr] relative">
+        <div className="flex min-h-screen w-full relative dark bg-[#020617] bg-[radial-gradient(ellipse_at_center,rgba(255,101,30,0.15)_0%,rgba(2,6,23,1)_80%)] text-white font-sans antialiased">
             {/* Sidebar desktop */}
-            <div className="hidden border-r bg-muted/40 md:block">
+            <div className="hidden bg-slate-950 border-r border-slate-900 md:block shrink-0 relative z-20">
                 <Sidebar />
             </div>
-            <div className="flex flex-col">
-                <header className="flex h-16 items-center gap-4 border-b bg-muted/40 px-4 lg:h-20 lg:px-6">
+            <div className="flex flex-col flex-1 min-w-0 relative z-10">
+                <header className="flex h-16 items-center gap-4 border-b border-slate-900 bg-slate-950/80 backdrop-blur-md px-4 lg:h-20 lg:px-6">
                     {/* Hambúrguer mobile */}
                     <MobileSidebar />
                     <div className="w-full flex-1">

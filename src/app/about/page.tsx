@@ -48,15 +48,9 @@ export default function AboutPage() {
 
     return (
         <>
-            <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700;800;900&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
-
+        <style>{`
         .about-page {
           min-height: 100vh;
-           background: radial-gradient(ellipse at center, rgba(255,101,30,0.15) 0%, rgba(2,6,23,1) 70%);
-           background-color: #020617; /* Fallback slate-950 */
-          font-family: 'Outfit', sans-serif;
-          color: #f5f5f5;
           overflow: hidden;
           position: relative;
         }
@@ -97,14 +91,20 @@ export default function AboutPage() {
         .about-stagger-8 { transition-delay: 1.15s; }
 
         .value-card {
-          background: linear-gradient(135deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%);
-          border: 1px solid rgba(255,255,255,0.06);
           border-radius: 16px;
           padding: 28px 24px;
           cursor: pointer;
           transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
           position: relative;
           overflow: hidden;
+          background: rgba(0,0,0,0.03);
+          border: 1px solid rgba(0,0,0,0.06);
+        }
+        @media (prefers-color-scheme: dark) {
+          .value-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%);
+            border: 1px solid rgba(255,255,255,0.06);
+          }
         }
         .value-card::before {
           content: '';
@@ -132,7 +132,7 @@ export default function AboutPage() {
         }
 
         .about-section-label {
-          font-family: 'Space Mono', monospace;
+          font-family: inherit;
           font-size: 11px;
           letter-spacing: 4px;
           text-transform: uppercase;
@@ -172,55 +172,40 @@ export default function AboutPage() {
 
             <Header />
 
-            <div className="about-page">
+            <div className="about-page font-sans antialiased text-white bg-[#020617] bg-[radial-gradient(ellipse_at_center,rgba(255,101,30,0.15)_0%,rgba(2,6,23,1)_70%)]">
                 <div className="grain" />
 
                 {/* Ambient orbs */}
-                <div className="glow-orb" style={{ width: 500, height: 500, background: "#E64A19", top: "-10%", right: "-5%" }} />
-                <div className="glow-orb" style={{ width: 400, height: 400, background: "#FF6D00", bottom: "10%", left: "-8%" }} />
-                <div className="glow-orb" style={{ width: 300, height: 300, background: "#BF360C", top: "50%", right: "20%" }} />
+                <div className="glow-orb" style={{ width: 800, height: 800, background: "#E64A19", top: "-15%", right: "-10%", opacity: 0.8 }} />
+                <div className="glow-orb" style={{ width: 600, height: 600, background: "#FF6D00", bottom: "5%", left: "-10%", opacity: 0.6 }} />
+                <div className="glow-orb" style={{ width: 500, height: 500, background: "#BF360C", top: "40%", right: "15%", opacity: 0.5 }} />
 
                 <div style={{ maxWidth: 1100, margin: "0 auto", padding: "160px 32px 60px", position: "relative", zIndex: 2 }}>
 
-                    {/* Header / Logo */}
-                    <div className={`about-fade-up about-stagger-1 ${visible ? "show" : ""}`} style={{ textAlign: "center", marginBottom: 64 }}>
-                        <div className="flex justify-center mb-12">
-                            <Logo className="h-32 md:h-48 lg:h-56 drop-shadow-2xl" />
-                        </div>
-                        <p style={{
-                            fontFamily: "'Space Mono', monospace",
-                            fontSize: 12,
-                            letterSpacing: 6,
-                            textTransform: "uppercase",
-                            color: "rgba(255,255,255,0.35)",
-                        }}>
-                            Marketing Rápido
-                        </p>
+                    {/* Hidden Header for spacing, since Logo was removed */}
+                    <div className={`about-fade-up about-stagger-1 ${visible ? "show" : ""}`} style={{ textAlign: "center", marginBottom: 20 }}>
                     </div>
-
-                    <div className="about-divider" />
 
                     {/* Mission & Vision */}
                     <div className="about-mvv-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 60, marginBottom: 0 }}>
 
                         {/* Mission */}
                         <div className={`about-fade-up about-stagger-2 ${visible ? "show" : ""}`}>
-                            <div className="about-section-label">Missão</div>
+                            <div className="about-section-label" style={{ fontSize: 13, padding: "6px 16px" }}>Missão</div>
                             <h2 style={{
-                                fontSize: "clamp(22px, 3vw, 30px)",
+                                fontSize: "clamp(28px, 4vw, 40px)",
                                 fontWeight: 700,
-                                lineHeight: 1.3,
-                                marginBottom: 20,
+                                lineHeight: 1.25,
+                                marginBottom: 24,
                                 letterSpacing: -0.5,
                             }}>
                                 Democratizar o acesso ao{" "}
                                 <span className="about-gradient-text">marketing profissional</span>{" "}
                                 para quem mais precisa.
                             </h2>
-                            <p style={{
-                                fontSize: 15,
-                                lineHeight: 1.75,
-                                color: "rgba(255,255,255,0.55)",
+                            <p className="text-slate-300" style={{
+                                fontSize: 18,
+                                lineHeight: 1.8,
                                 fontWeight: 300,
                             }}>
                                 Eliminar a burocracia e entregar resultados rápidos, acessíveis e de qualidade para pequenas e médias empresas no Brasil — sem que o cliente precise entender de marketing para crescer.
@@ -229,22 +214,21 @@ export default function AboutPage() {
 
                         {/* Vision */}
                         <div className={`about-fade-up about-stagger-3 ${visible ? "show" : ""}`}>
-                            <div className="about-section-label">Visão</div>
+                            <div className="about-section-label" style={{ fontSize: 13, padding: "6px 16px" }}>Visão</div>
                             <h2 style={{
-                                fontSize: "clamp(22px, 3vw, 30px)",
+                                fontSize: "clamp(28px, 4vw, 40px)",
                                 fontWeight: 700,
-                                lineHeight: 1.3,
-                                marginBottom: 20,
+                                lineHeight: 1.25,
+                                marginBottom: 24,
                                 letterSpacing: -0.5,
                             }}>
                                 A principal plataforma de{" "}
                                 <span className="about-gradient-text">marketing sob demanda</span>{" "}
                                 do Brasil até 2028.
                             </h2>
-                            <p style={{
-                                fontSize: 15,
-                                lineHeight: 1.75,
-                                color: "rgba(255,255,255,0.55)",
+                            <p className="text-slate-300" style={{
+                                fontSize: 18,
+                                lineHeight: 1.8,
                                 fontWeight: 300,
                             }}>
                                 Ser referência para MEIs e PMEs que buscam crescimento digital com agilidade, do mesmo modo que a Design Pickle revolucionou o mercado criativo nos Estados Unidos.
@@ -257,15 +241,14 @@ export default function AboutPage() {
                     {/* Values */}
                     <div className={`about-fade-up about-stagger-4 ${visible ? "show" : ""}`} style={{ marginBottom: 40 }}>
                         <div style={{ textAlign: "center", marginBottom: 48 }}>
-                            <div className="about-section-label" style={{ marginBottom: 20 }}>Nossos Valores</div>
-                            <h2 className="about-hero-text" style={{ marginBottom: 12 }}>
+                            <div className="about-section-label" style={{ marginBottom: 24, fontSize: 13, padding: "6px 16px" }}>Nossos Valores</div>
+                            <h2 className="about-hero-text" style={{ marginBottom: 16 }}>
                                 No que <span className="about-gradient-text">acreditamos</span>
                             </h2>
-                            <p style={{
-                                fontSize: 16,
-                                color: "rgba(255,255,255,0.4)",
+                            <p className="text-slate-400" style={{
+                                fontSize: 20,
                                 fontWeight: 300,
-                                maxWidth: 500,
+                                maxWidth: 600,
                                 margin: "0 auto",
                             }}>
                                 Seis princípios que guiam cada decisão, cada entrega e cada pivô.
@@ -284,8 +267,8 @@ export default function AboutPage() {
                                     onClick={() => setActiveValue(activeValue === i ? null : i)}
                                 >
                                     <div style={{
-                                        fontSize: 28,
-                                        marginBottom: 16,
+                                        fontSize: 32,
+                                        marginBottom: 20,
                                         background: "linear-gradient(135deg, #E64A19, #FF6D00)",
                                         WebkitBackgroundClip: "text",
                                         WebkitTextFillColor: "transparent",
@@ -293,17 +276,16 @@ export default function AboutPage() {
                                         {v.icon}
                                     </div>
                                     <h3 style={{
-                                        fontSize: 16,
+                                        fontSize: 20,
                                         fontWeight: 700,
-                                        marginBottom: 10,
+                                        marginBottom: 12,
                                         letterSpacing: -0.3,
                                     }}>
                                         {v.title}
                                     </h3>
-                                    <p style={{
-                                        fontSize: 13,
-                                        lineHeight: 1.7,
-                                        color: "rgba(255,255,255,0.45)",
+                                    <p className="text-slate-400" style={{
+                                        fontSize: 15,
+                                        lineHeight: 1.75,
                                         fontWeight: 300,
                                     }}>
                                         {v.desc}
@@ -315,26 +297,6 @@ export default function AboutPage() {
 
                     <div className="about-divider" />
 
-                    {/* Footer quote */}
-                    <div className={`about-fade-up about-stagger-8 ${visible ? "show" : ""}`} style={{ textAlign: "center", paddingBottom: 20 }}>
-                        <p style={{
-                            fontFamily: "'Space Mono', monospace",
-                            fontSize: 13,
-                            color: "rgba(255,255,255,0.2)",
-                            letterSpacing: 2,
-                        }}>
-                            FAST MKT © 2026 — Marketing Rápido
-                        </p>
-                        <p style={{
-                            fontSize: 14,
-                            color: "rgba(255,255,255,0.3)",
-                            fontStyle: "italic",
-                            marginTop: 12,
-                            fontWeight: 300,
-                        }}>
-                            &ldquo;Não espere o produto perfeito. Lance imperfeito, melhore rápido.&rdquo;
-                        </p>
-                    </div>
                 </div>
             </div>
 
