@@ -6,49 +6,49 @@ import { Footer } from "@/components/landing/Footer";
 import { Logo } from "@/components/Logo";
 
 export default function AboutPage() {
-    const [visible, setVisible] = useState(false);
-    const [activeValue, setActiveValue] = useState<number | null>(null);
+  const [visible, setVisible] = useState(false);
+  const [activeValue, setActiveValue] = useState<number | null>(null);
 
-    useEffect(() => {
-        setTimeout(() => setVisible(true), 100);
-    }, []);
+  useEffect(() => {
+    setTimeout(() => setVisible(true), 100);
+  }, []);
 
-    const values = [
-        {
-            icon: "⚡",
-            title: "Velocidade com Qualidade",
-            desc: "Entregar rápido não significa entregar mal. Cada arte, cada campanha e cada entrega reflete o profissionalismo que o cliente merece — no menor tempo possível.",
-        },
-        {
-            icon: "◎",
-            title: "Simplicidade Radical",
-            desc: "Se o cliente precisa de um manual pra usar nosso serviço, falhamos. Tudo precisa ser intuitivo: pedir, pagar, receber, crescer.",
-        },
-        {
-            icon: "◈",
-            title: "Transparência Total",
-            desc: "Preço claro, prazo claro, resultado claro. Sem letras miúdas, sem contratos escondidos, sem surpresas na fatura.",
-        },
-        {
-            icon: "△",
-            title: "Hipótese Antes de Opinião",
-            desc: "Não tomamos decisões por achismo. Testamos, medimos, aprendemos e pivotamos. Dados guiam o caminho, ego fica na porta.",
-        },
-        {
-            icon: "∞",
-            title: "Crescer Junto",
-            desc: "O sucesso do cliente é o nosso sucesso. Se o corretor vendeu mais imóveis, se a clínica lotou a agenda — aí sim fizemos nosso trabalho.",
-        },
-        {
-            icon: "▣",
-            title: "Lean Até o Osso",
-            desc: "Cada real gasto precisa justificar sua existência. Não contratamos antes de precisar, não automatizamos antes de validar, não escalamos antes de lucrar.",
-        },
-    ];
+  const values = [
+    {
+      icon: "⚡",
+      title: "Velocidade com Qualidade",
+      desc: "Entregar rápido não significa entregar mal. Cada arte, cada campanha e cada entrega reflete o profissionalismo que o cliente merece — no menor tempo possível.",
+    },
+    {
+      icon: "◎",
+      title: "Simplicidade Radical",
+      desc: "Se o cliente precisa de um manual pra usar nosso serviço, falhamos. Tudo precisa ser intuitivo: pedir, pagar, receber, crescer.",
+    },
+    {
+      icon: "◈",
+      title: "Transparência Total",
+      desc: "Preço claro, prazo claro, resultado claro. Sem letras miúdas, sem contratos escondidos, sem surpresas na fatura.",
+    },
+    {
+      icon: "△",
+      title: "Hipótese Antes de Opinião",
+      desc: "Não tomamos decisões por achismo. Testamos, medimos, aprendemos e pivotamos. Dados guiam o caminho, ego fica na porta.",
+    },
+    {
+      icon: "∞",
+      title: "Crescer Junto",
+      desc: "O sucesso do cliente é o nosso sucesso. Se o corretor vendeu mais imóveis, se a clínica lotou a agenda — aí sim fizemos nosso trabalho.",
+    },
+    {
+      icon: "▣",
+      title: "Lean Até o Osso",
+      desc: "Cada real gasto precisa justificar sua existência. Não contratamos antes de precisar, não automatizamos antes de validar, não escalamos antes de lucrar.",
+    },
+  ];
 
-    return (
-        <>
-        <style>{`
+  return (
+    <>
+      <style>{`
         .about-page {
           min-height: 100vh;
           overflow: hidden;
@@ -67,7 +67,7 @@ export default function AboutPage() {
           position: absolute;
           border-radius: 50%;
           filter: blur(120px);
-          opacity: 0.15;
+          opacity: 0.05;
           pointer-events: none;
         }
 
@@ -170,137 +170,137 @@ export default function AboutPage() {
         }
       `}</style>
 
-            <Header />
+      <Header />
 
-            <div className="about-page font-sans antialiased text-white bg-[#020617] bg-[radial-gradient(ellipse_at_center,rgba(255,101,30,0.15)_0%,rgba(2,6,23,1)_70%)]">
-                <div className="grain" />
+      <div className="about-page font-sans antialiased text-white bg-[#020617] bg-[radial-gradient(ellipse_at_center,rgba(255,101,30,0.15)_0%,rgba(2,6,23,1)_70%)]">
+        <div className="grain" />
 
-                {/* Ambient orbs */}
-                <div className="glow-orb" style={{ width: 800, height: 800, background: "#E64A19", top: "-15%", right: "-10%", opacity: 0.8 }} />
-                <div className="glow-orb" style={{ width: 600, height: 600, background: "#FF6D00", bottom: "5%", left: "-10%", opacity: 0.6 }} />
-                <div className="glow-orb" style={{ width: 500, height: 500, background: "#BF360C", top: "40%", right: "15%", opacity: 0.5 }} />
+        {/* Ambient orbs */}
+        <div className="glow-orb" style={{ width: 800, height: 800, background: "#ac4729", top: "-15%", right: "-10%", opacity: 0.5 }} />
+        <div className="glow-orb" style={{ width: 600, height: 600, background: "#be4421", bottom: "5%", left: "-10%", opacity: 0.4 }} />
+        <div className="glow-orb" style={{ width: 500, height: 500, background: "#BF360C", top: "40%", right: "15%", opacity: 0.2 }} />
 
-                <div style={{ maxWidth: 1100, margin: "0 auto", padding: "160px 32px 60px", position: "relative", zIndex: 2 }}>
+        <div style={{ maxWidth: 1100, margin: "0 auto", padding: "160px 32px 60px", position: "relative", zIndex: 2 }}>
 
-                    {/* Hidden Header for spacing, since Logo was removed */}
-                    <div className={`about-fade-up about-stagger-1 ${visible ? "show" : ""}`} style={{ textAlign: "center", marginBottom: 20 }}>
-                    </div>
+          {/* Hidden Header for spacing, since Logo was removed */}
+          <div className={`about-fade-up about-stagger-1 ${visible ? "show" : ""}`} style={{ textAlign: "center", marginBottom: 20 }}>
+          </div>
 
-                    {/* Mission & Vision */}
-                    <div className="about-mvv-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 60, marginBottom: 0 }}>
+          {/* Mission & Vision */}
+          <div className="about-mvv-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 60, marginBottom: 0 }}>
 
-                        {/* Mission */}
-                        <div className={`about-fade-up about-stagger-2 ${visible ? "show" : ""}`}>
-                            <div className="about-section-label" style={{ fontSize: 13, padding: "6px 16px" }}>Missão</div>
-                            <h2 style={{
-                                fontSize: "clamp(28px, 4vw, 40px)",
-                                fontWeight: 700,
-                                lineHeight: 1.25,
-                                marginBottom: 24,
-                                letterSpacing: -0.5,
-                            }}>
-                                Democratizar o acesso ao{" "}
-                                <span className="about-gradient-text">marketing profissional</span>{" "}
-                                para quem mais precisa.
-                            </h2>
-                            <p className="text-slate-300" style={{
-                                fontSize: 18,
-                                lineHeight: 1.8,
-                                fontWeight: 300,
-                            }}>
-                                Eliminar a burocracia e entregar resultados rápidos, acessíveis e de qualidade para pequenas e médias empresas no Brasil — sem que o cliente precise entender de marketing para crescer.
-                            </p>
-                        </div>
-
-                        {/* Vision */}
-                        <div className={`about-fade-up about-stagger-3 ${visible ? "show" : ""}`}>
-                            <div className="about-section-label" style={{ fontSize: 13, padding: "6px 16px" }}>Visão</div>
-                            <h2 style={{
-                                fontSize: "clamp(28px, 4vw, 40px)",
-                                fontWeight: 700,
-                                lineHeight: 1.25,
-                                marginBottom: 24,
-                                letterSpacing: -0.5,
-                            }}>
-                                A principal plataforma de{" "}
-                                <span className="about-gradient-text">marketing sob demanda</span>{" "}
-                                do Brasil até 2028.
-                            </h2>
-                            <p className="text-slate-300" style={{
-                                fontSize: 18,
-                                lineHeight: 1.8,
-                                fontWeight: 300,
-                            }}>
-                                Ser referência para MEIs e PMEs que buscam crescimento digital com agilidade, do mesmo modo que a Design Pickle revolucionou o mercado criativo nos Estados Unidos.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div className="about-divider" />
-
-                    {/* Values */}
-                    <div className={`about-fade-up about-stagger-4 ${visible ? "show" : ""}`} style={{ marginBottom: 40 }}>
-                        <div style={{ textAlign: "center", marginBottom: 48 }}>
-                            <div className="about-section-label" style={{ marginBottom: 24, fontSize: 13, padding: "6px 16px" }}>Nossos Valores</div>
-                            <h2 className="about-hero-text" style={{ marginBottom: 16 }}>
-                                No que <span className="about-gradient-text">acreditamos</span>
-                            </h2>
-                            <p className="text-slate-400" style={{
-                                fontSize: 20,
-                                fontWeight: 300,
-                                maxWidth: 600,
-                                margin: "0 auto",
-                            }}>
-                                Seis princípios que guiam cada decisão, cada entrega e cada pivô.
-                            </p>
-                        </div>
-
-                        <div className="about-values-grid" style={{
-                            display: "grid",
-                            gridTemplateColumns: "1fr 1fr 1fr",
-                            gap: 16,
-                        }}>
-                            {values.map((v, i) => (
-                                <div
-                                    key={i}
-                                    className={`value-card about-fade-up about-stagger-${i + 3} ${visible ? "show" : ""} ${activeValue === i ? "active" : ""}`}
-                                    onClick={() => setActiveValue(activeValue === i ? null : i)}
-                                >
-                                    <div style={{
-                                        fontSize: 32,
-                                        marginBottom: 20,
-                                        background: "linear-gradient(135deg, #E64A19, #FF6D00)",
-                                        WebkitBackgroundClip: "text",
-                                        WebkitTextFillColor: "transparent",
-                                    }}>
-                                        {v.icon}
-                                    </div>
-                                    <h3 style={{
-                                        fontSize: 20,
-                                        fontWeight: 700,
-                                        marginBottom: 12,
-                                        letterSpacing: -0.3,
-                                    }}>
-                                        {v.title}
-                                    </h3>
-                                    <p className="text-slate-400" style={{
-                                        fontSize: 15,
-                                        lineHeight: 1.75,
-                                        fontWeight: 300,
-                                    }}>
-                                        {v.desc}
-                                    </p>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-
-                    <div className="about-divider" />
-
-                </div>
+            {/* Mission */}
+            <div className={`about-fade-up about-stagger-2 ${visible ? "show" : ""}`}>
+              <div className="about-section-label" style={{ fontSize: 13, padding: "6px 16px" }}>Missão</div>
+              <h2 style={{
+                fontSize: "clamp(28px, 4vw, 40px)",
+                fontWeight: 700,
+                lineHeight: 1.25,
+                marginBottom: 24,
+                letterSpacing: -0.5,
+              }}>
+                Democratizar o acesso ao{" "}
+                <span className="about-gradient-text">marketing profissional</span>{" "}
+                para quem mais precisa.
+              </h2>
+              <p className="text-slate-300" style={{
+                fontSize: 18,
+                lineHeight: 1.8,
+                fontWeight: 300,
+              }}>
+                Eliminar a burocracia e entregar resultados rápidos, acessíveis e de qualidade para pequenas e médias empresas no Brasil — sem que o cliente precise entender de marketing para crescer.
+              </p>
             </div>
 
-            <Footer />
-        </>
-    );
+            {/* Vision */}
+            <div className={`about-fade-up about-stagger-3 ${visible ? "show" : ""}`}>
+              <div className="about-section-label" style={{ fontSize: 13, padding: "6px 16px" }}>Visão</div>
+              <h2 style={{
+                fontSize: "clamp(28px, 4vw, 40px)",
+                fontWeight: 700,
+                lineHeight: 1.25,
+                marginBottom: 24,
+                letterSpacing: -0.5,
+              }}>
+                A principal plataforma de{" "}
+                <span className="about-gradient-text">marketing sob demanda</span>{" "}
+                do Brasil até 2028.
+              </h2>
+              <p className="text-slate-300" style={{
+                fontSize: 18,
+                lineHeight: 1.8,
+                fontWeight: 300,
+              }}>
+                Ser referência para MEIs e PMEs que buscam crescimento digital com agilidade, do mesmo modo que a Design Pickle revolucionou o mercado criativo nos Estados Unidos.
+              </p>
+            </div>
+          </div>
+
+          <div className="about-divider" />
+
+          {/* Values */}
+          <div className={`about-fade-up about-stagger-4 ${visible ? "show" : ""}`} style={{ marginBottom: 40 }}>
+            <div style={{ textAlign: "center", marginBottom: 48 }}>
+              <div className="about-section-label" style={{ marginBottom: 24, fontSize: 13, padding: "6px 16px" }}>Nossos Valores</div>
+              <h2 className="about-hero-text" style={{ marginBottom: 16 }}>
+                No que <span className="about-gradient-text">acreditamos</span>
+              </h2>
+              <p className="text-slate-400" style={{
+                fontSize: 20,
+                fontWeight: 300,
+                maxWidth: 600,
+                margin: "0 auto",
+              }}>
+                Seis princípios que guiam cada decisão, cada entrega e cada pivô.
+              </p>
+            </div>
+
+            <div className="about-values-grid" style={{
+              display: "grid",
+              gridTemplateColumns: "1fr 1fr 1fr",
+              gap: 16,
+            }}>
+              {values.map((v, i) => (
+                <div
+                  key={i}
+                  className={`value-card about-fade-up about-stagger-${i + 3} ${visible ? "show" : ""} ${activeValue === i ? "active" : ""}`}
+                  onClick={() => setActiveValue(activeValue === i ? null : i)}
+                >
+                  <div style={{
+                    fontSize: 32,
+                    marginBottom: 20,
+                    background: "linear-gradient(135deg, #E64A19, #FF6D00)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                  }}>
+                    {v.icon}
+                  </div>
+                  <h3 style={{
+                    fontSize: 20,
+                    fontWeight: 700,
+                    marginBottom: 12,
+                    letterSpacing: -0.3,
+                  }}>
+                    {v.title}
+                  </h3>
+                  <p className="text-slate-400" style={{
+                    fontSize: 15,
+                    lineHeight: 1.75,
+                    fontWeight: 300,
+                  }}>
+                    {v.desc}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="about-divider" />
+
+        </div>
+      </div>
+
+      <Footer />
+    </>
+  );
 }
