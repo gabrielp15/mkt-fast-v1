@@ -83,7 +83,7 @@ export default function LoginPage() {
                                 </div>
                                 <button
                                     disabled={isLoading}
-                                    className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-cta text-cta-foreground shadow hover:bg-cta/90 h-9 px-4 py-2"
+                                    className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-all focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-gradient-to-r from-[#E64A19] to-[#FF6D00] text-white shadow hover:scale-[1.02] hover:shadow-[0_8px_20px_-6px_rgba(230,74,25,0.5)] h-9 px-4 py-2"
                                 >
                                     {isLoading && (
                                         <Loader2 className="mr-2 h-4 w-4 animate-spin" />

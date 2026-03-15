@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Palette, Video, Megaphone, MonitorPlay } from "lucide-react";
+import { Palette, Video, Megaphone, MonitorPlay, PlusCircle } from "lucide-react";
+import Link from "next/link";
 
 const services = [
     {
@@ -49,7 +50,7 @@ export function Services() {
                     </div>
                 </div>
                 <motion.div
-                    className="mx-auto grid max-w-5xl grid-cols-1 gap-6 md:grid-cols-3 mt-8"
+                    className="mx-auto grid max-w-5xl grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 mt-8"
                     variants={container}
                     initial="hidden"
                     whileInView="show"
@@ -62,6 +63,13 @@ export function Services() {
                             <p className="text-sm text-muted-foreground text-center">{service.description}</p>
                         </motion.div>
                     ))}
+                    <motion.div variants={item} className="h-full">
+                        <Link href="/servicos" className="group flex h-full flex-col items-center justify-center space-y-2 rounded-lg border bg-primary/10 p-6 shadow-sm transition-all hover:shadow-md hover:-translate-y-1 hover:bg-primary/20">
+                            <PlusCircle className="h-10 w-10 text-primary transition-transform group-hover:scale-110" />
+                            <h3 className="text-xl font-bold text-primary">E muito mais</h3>
+                            <p className="text-sm text-muted-foreground text-center">Conheça todos os nossos serviços.</p>
+                        </Link>
+                    </motion.div>
                 </motion.div>
             </div>
         </section>

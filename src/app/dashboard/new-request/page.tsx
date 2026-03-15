@@ -24,16 +24,16 @@ export default function NewRequestPage() {
     // UI State
     // Tabela de preços avulsos (conforme plano de negócios oficial)
     const avulsoPrecos: Record<string, { price: number; label: string }> = {
-        "post-instagram":   { price: 29,   label: "Post Instagram Profissional" },
-        "kit-artes":        { price: 97,   label: "Kit 5 Artes Redes Sociais" },
-        "copy-anuncio":     { price: 59,   label: "Copy para Anúncio" },
-        "bio-instagram":    { price: 39,   label: "Bio para Instagram Otimizada" },
-        "criativo-meta":    { price: 79,   label: "Criativo para Meta Ads" },
-        "google-business":  { price: 297,  label: "Cadastro no Google Business" },
-        "criacao-bm":       { price: 297,  label: "Criação de BM na Meta" },
-        "landing-page":     { price: 297,  label: "Landing Page Simples" },
+        "post-instagram": { price: 29, label: "Post Instagram Profissional" },
+        "kit-artes": { price: 97, label: "Kit 5 Artes Redes Sociais" },
+        "copy-anuncio": { price: 59, label: "Copy para Anúncio" },
+        "bio-instagram": { price: 39, label: "Bio para Instagram Otimizada" },
+        "criativo-meta": { price: 79, label: "Criativo para Meta Ads" },
+        "google-business": { price: 297, label: "Cadastro no Google Business" },
+        "criacao-bm": { price: 297, label: "Criação de BM na Meta" },
+        "landing-page": { price: 297, label: "Landing Page Simples" },
         "site-institucional": { price: 1500, label: "Site Institucional" },
-        "ecommerce":        { price: 3000, label: "E-commerce (base)" },
+        "ecommerce": { price: 3000, label: "E-commerce (base)" },
     };
 
     // Derived Pricing Logic
@@ -42,7 +42,7 @@ export default function NewRequestPage() {
         const item = avulsoPrecos[type];
         if (!item) return { estimatedPrice: null, isQuote: true };
         return { estimatedPrice: item.price * quantity, isQuote: false };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [type, quantity]);
 
     const handleInitialSubmit = (e: React.FormEvent) => {
@@ -243,7 +243,7 @@ export default function NewRequestPage() {
                                 form="request-form"
                                 type="submit"
                                 disabled={isLoading || !category}
-                                className="w-full inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-cta text-cta-foreground shadow hover:bg-cta/90 h-10 px-4 py-2"
+                                className="w-full inline-flex items-center justify-center rounded-md text-sm font-medium transition-all focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-gradient-to-r from-[#E64A19] to-[#FF6D00] text-white shadow hover:scale-[1.02] hover:shadow-[0_8px_20px_-6px_rgba(230,74,25,0.5)] h-10 px-4 py-2"
                             >
                                 {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
                                 {isQuote ? "Solicitar Orçamento" : "Prosseguir para Pagamento"}
@@ -323,7 +323,7 @@ export default function NewRequestPage() {
                             </button>
                             <button
                                 type="button"
-                                className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-cta text-cta-foreground shadow hover:bg-cta/90 h-9 px-4 py-2"
+                                className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-all focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-gradient-to-r from-[#E64A19] to-[#FF6D00] text-white shadow hover:scale-[1.02] hover:shadow-[0_8px_20px_-6px_rgba(230,74,25,0.5)] h-9 px-4 py-2"
                                 onClick={handleFinalSubmit}
                                 disabled={isLoading}
                             >

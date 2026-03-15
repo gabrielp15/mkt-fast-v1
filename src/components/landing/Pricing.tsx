@@ -27,7 +27,7 @@ export function Pricing() {
                     <div className="space-y-2">
                         <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Planos Flexíveis</h2>
                         <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                            Escolha o plano ideal para a velocidade do seu negócio.
+                            Escolha o plano ideal para a velocidade e escala do seu negócio.
                         </p>
                     </div>
                 </div>
@@ -64,9 +64,9 @@ export function Pricing() {
 
                     {/* Coming soon overlay styled as caution tape */}
                     <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-20 overflow-hidden rounded-xl">
-                        <div 
-                        className="w-[110%] absolute flex flex-col items-center justify-center -rotate-3 shadow-2xl border-y-[12px] border-yellow-500/20 py-6"
-                        style={{ backgroundImage: "repeating-linear-gradient(45deg, #eab308, #eab308 40px, #0f172a 40px, #0f172a 80px)" }}
+                        <div
+                            className="w-[110%] absolute flex flex-col items-center justify-center -rotate-3 shadow-2xl border-y-[12px] border-yellow-500/20 py-6"
+                            style={{ backgroundImage: "repeating-linear-gradient(45deg, #eab308, #eab308 40px, #0f172a 40px, #0f172a 80px)" }}
                         >
                             <div className="w-full bg-slate-950/95 backdrop-blur-md px-8 py-5 border-y-4 border-yellow-500 flex flex-col items-center justify-center">
                                 <h3 className="text-3xl md:text-5xl font-black tracking-widest text-white uppercase text-center shadow-black drop-shadow-lg">

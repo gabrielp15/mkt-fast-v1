@@ -6,7 +6,7 @@ import { ArrowRight } from "lucide-react";
 
 export function Hero() {
     return (
-        <section className="relative overflow-hidden py-24 md:py-32 flex items-center justify-center bg-slate-950 bg-[radial-gradient(ellipse_at_center,rgba(255,101,30,0.15)_0%,rgba(2,6,23,1)_80%)] text-white min-h-[85vh]">
+        <section className="relative overflow-hidden py-24 md:py-32 flex items-center justify-center bg-slate-950 bg-[radial-gradient(ellipse_at_center,rgba(255,101,30,0.15)_0%,rgba(2,6,23,1)_80%)] text-white min-h-screen">
             <div className="container px-4 md:px-6 relative z-10">
                 <div className="flex flex-col items-center space-y-4 text-center mt-8">
 
@@ -38,7 +38,7 @@ export function Hero() {
                     >
                         <Link
                             href="/login"
-                            className="inline-flex h-10 items-center justify-center rounded-md bg-cta px-8 text-sm font-medium text-cta-foreground shadow transition-colors hover:bg-cta/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
+                            className="inline-flex h-10 items-center justify-center rounded-md bg-gradient-to-r from-[#E64A19] to-[#FF6D00] px-8 text-sm font-medium text-white shadow transition-all hover:scale-105 hover:shadow-[0_8px_20px_-6px_rgba(230,74,25,0.5)] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
                         >
                             Começar Agora
                             <ArrowRight className="ml-2 h-4 w-4" />
