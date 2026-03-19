@@ -185,6 +185,9 @@ function ContactFormInner() {
                         </span>
                     </div>
                     {/* Note: rCAPTCHA v3 is invisible, so there is no visual block here anymore! */}
+                    <p className="text-[10px] text-center text-slate-500 my-1">
+                        Protegido pelo reCAPTCHA. Aplicam-se a <a href="https://policies.google.com/privacy" target="_blank" rel="noreferrer" className="underline hover:text-slate-300">Privacidade</a> e <a href="https://policies.google.com/terms" target="_blank" rel="noreferrer" className="underline hover:text-slate-300">Termos</a> do Google.
+                    </p>
                     <button
                         type="submit"
                         disabled={status === "loading"}
