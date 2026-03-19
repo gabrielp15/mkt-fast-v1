@@ -249,7 +249,7 @@ export default function ServicesPage() {
 
           <div className={`services-fade-up services-stagger-4 ${visible ? "show" : ""}`} style={{ textAlign: "center", paddingBottom: 40 }}>
             <h2 style={{ fontSize: 32, fontWeight: 700, marginBottom: 24 }}>Pronto para começarmos?</h2>
-            <a href="/login" style={{
+            <button onClick={() => window.dispatchEvent(new Event('openContactWidget'))} style={{
               display: "inline-flex",
               alignItems: "center",
               justifyContent: "center",
@@ -272,7 +272,7 @@ export default function ServicesPage() {
                 e.currentTarget.style.boxShadow = "0 8px 20px -6px rgba(230,74,25,0.5)";
               }}>
               Acesse Agora
-            </a>
+            </button>
           </div>
 
         </div>

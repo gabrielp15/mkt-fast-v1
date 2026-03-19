@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { cn } from "@/lib/utils";
+import { ContactWidget } from "@/components/landing/ContactWidget";
 
 export const metadata: Metadata = {
   title: "Fast MKT - Marketing Rápido",
@@ -16,6 +17,7 @@ export default function RootLayout({
     <html lang="pt-BR">
       <body className={cn("min-h-screen bg-background font-sans antialiased")}>
         {children}
+        <ContactWidget />
       </body>
     </html>
   );

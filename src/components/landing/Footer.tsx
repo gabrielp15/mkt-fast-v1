@@ -8,8 +8,8 @@ export function Footer() {
                     © 2026 Fast MKT. Todos os direitos reservados.
                 </p>
                 <div className="flex gap-4">
-                    <Link href="#" className="text-sm font-medium text-slate-400 transition-colors hover:text-primary">Termos</Link>
-                    <Link href="#" className="text-sm font-medium text-slate-400 transition-colors hover:text-primary">Privacidade</Link>
+                    <Link href="/termos" className="text-sm font-medium text-slate-400 transition-colors hover:text-primary">Termos</Link>
+                    <Link href="/privacidade" className="text-sm font-medium text-slate-400 transition-colors hover:text-primary">Privacidade</Link>
                 </div>
             </div>
         </footer>

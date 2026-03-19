@@ -36,13 +36,13 @@ export function Hero() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: 0.3 }}
                     >
-                        <Link
-                            href="/login"
+                        <button
+                            onClick={() => window.dispatchEvent(new Event('openContactWidget'))}
                             className="inline-flex h-10 items-center justify-center rounded-md bg-gradient-to-r from-[#E64A19] to-[#FF6D00] px-8 text-sm font-medium text-white shadow transition-all hover:scale-105 hover:shadow-[0_8px_20px_-6px_rgba(230,74,25,0.5)] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
                         >
                             Começar Agora
                             <ArrowRight className="ml-2 h-4 w-4" />
-                        </Link>
+                        </button>
                         <Link
                             href="/about"
                             className="inline-flex h-10 items-center justify-center rounded-md border border-slate-700 bg-transparent px-8 text-sm font-medium text-slate-200 shadow-sm transition-colors hover:bg-slate-800 hover:text-white focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
