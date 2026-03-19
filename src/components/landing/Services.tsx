@@ -57,10 +57,12 @@ export function Services() {
                     viewport={{ once: true }}
                 >
                     {services.map((service, index) => (
-                        <motion.div key={index} variants={item} className="flex flex-col items-center space-y-2 rounded-lg border bg-card p-6 shadow-sm transition-all hover:shadow-md hover:-translate-y-1">
-                            {service.icon}
-                            <h3 className="text-xl font-bold">{service.title}</h3>
-                            <p className="text-sm text-muted-foreground text-center">{service.description}</p>
+                        <motion.div key={index} variants={item} className="h-full">
+                            <div className="flex h-full flex-col items-center space-y-2 rounded-lg border bg-card p-6 shadow-sm transition-all hover:shadow-md hover:-translate-y-1">
+                                {service.icon}
+                                <h3 className="text-xl font-bold">{service.title}</h3>
+                                <p className="text-sm text-muted-foreground text-center">{service.description}</p>
+                            </div>
                         </motion.div>
                     ))}
                     <motion.div variants={item} className="h-full">
