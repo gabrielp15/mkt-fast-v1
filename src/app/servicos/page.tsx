@@ -27,7 +27,7 @@ export default function ServicesPage() {
     {
       icon: <Video className="h-8 w-8" />,
       title: "Edição de Vídeo",
-      desc: "Cortes dinâmicos, inserção de legendas animadas e tratamento de cor profissional para Reels, TikToks e YouTube.",
+      desc: "Cortes dinâmicos, inserção de legendas animadas e tratamento de cor profissional para Reels, TikTok e YouTube.",
     },
     {
       icon: <MonitorPlay className="h-8 w-8" />,

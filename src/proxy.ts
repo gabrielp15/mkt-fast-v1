@@ -1,9 +1,17 @@
 import { NextRequest, NextResponse } from 'next/server';
 
 export function proxy(req: NextRequest) {
+  const url = req.nextUrl;
+
+  // Como estamos apenas em versão de Lançamento (Landing Page),
+  // qualquer tentativa de acesso direto a essas rotas será barrada e redirecionada à Home.
+  const blockedRoutes = ['/login', '/register', '/exclusao-solicitada'];
+  if (blockedRoutes.some(route => url.pathname.startsWith(route)) || url.pathname.startsWith('/dashboard')) {
+    return NextResponse.redirect(new URL('/', req.url));
+  }
+
   // Pegue o cabeçalho de autorização da requisição
   const basicAuth = req.headers.get('authorization');
-  const url = req.nextUrl;
 
   // Defina o seu usuário e senha aqui (O ideal é usar variáveis de ambiente)
   const USERNAME = process.env.BASIC_AUTH_USER;

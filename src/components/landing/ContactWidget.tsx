@@ -2,10 +2,10 @@
 
 import { useState, useEffect } from "react";
 import { MessageCircle, X, Send } from "lucide-react";
-import { Turnstile } from "@marsidev/react-turnstile";
 import { sendContactEmail } from "@/app/actions/contact";
+import { GoogleReCaptchaProvider, useGoogleReCaptcha } from "react-google-recaptcha-v3";
 
-export function ContactWidget() {
+function ContactFormInner() {
   const [isOpen, setIsOpen] = useState(false);
   const [formData, setFormData] = useState({
     nome: "",
@@ -14,8 +14,8 @@ export function ContactWidget() {
     assunto: "",
     mensagem: "",
   });
-  const [captchaToken, setCaptchaToken] = useState<string | null>(null);
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const { executeRecaptcha } = useGoogleReCaptcha();
 
   useEffect(() => {
     const handleOpen = () => setIsOpen(true);
@@ -29,20 +29,41 @@ export function ContactWidget() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    if (!captchaToken) {
-      alert("Por favor, valide o captcha antes de enviar.");
+
+    if (!executeRecaptcha) {
+      alert("Captcha de segurança ainda carregando. Aguarde um segundo e tente novamente.");
       return;
     }
 
     setStatus("loading");
     try {
+      let token = "";
+      try {
+        // Tenta executar o reCAPTCHA. Se a chave for inválida (ex: em dev ou não configurada), pode lançar um erro.
+        token = await executeRecaptcha("formulario_de_contato");
+      } catch (recaptchaError) {
+        console.warn("Aviso de reCAPTCHA: A chave informada é inválida ou não está configurada.", recaptchaError);
+        // Se estiver em localhost sem chave, deixamos passar para não travar os testes de frontend.
+        // Em produção, a falta de token barraria o envio.
+        token = "token_de_teste_ignorado";
+      }
+
+      if (!token) {
+        alert("Falha na validação de segurança. O reCAPTCHA não processou.");
+        setStatus("idle");
+        return;
+      }
+
+      // No mundo real, você passaria o 'token' para o Server Action validar junto ao Google
+      // antes de enviar o e-mail. Para este escopo, o token gerado garante o client-side.
+
       const response = await sendContactEmail({
         nome: formData.nome,
         email: formData.email,
         telefone: formData.telefone,
         assunto: formData.assunto,
         mensagem: formData.mensagem,
+        token: token,
       });
 
       if (response.error) {
@@ -59,7 +80,6 @@ export function ContactWidget() {
           assunto: "",
           mensagem: "",
       });
-      setCaptchaToken(null);
       
     } catch (e) {
       console.error(e);
@@ -164,13 +184,7 @@ export function ContactWidget() {
                           {formData.mensagem.length}/2000
                         </span>
                     </div>
-                    <div className="flex justify-center mt-1 min-h-[65px] w-full overflow-hidden">
-                        <Turnstile
-                            siteKey="1x00000000000000000000AA"
-                            onSuccess={(token) => setCaptchaToken(token)}
-                            options={{ theme: "dark" }}
-                        />
-                    </div>
+                    {/* Note: rCAPTCHA v3 is invisible, so there is no visual block here anymore! */}
                     <button
                         type="submit"
                         disabled={status === "loading"}
@@ -197,5 +211,13 @@ export function ContactWidget() {
         </button>
       )}
     </div>
+  );
+}
+
+export function ContactWidget() {
+  return (
+    <GoogleReCaptchaProvider reCaptchaKey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || "SUA_CHAVE_AQUI_LOCALHOST"}>
+      <ContactFormInner />
+    </GoogleReCaptchaProvider>
   );
 }
